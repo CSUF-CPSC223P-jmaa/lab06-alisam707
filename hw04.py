@@ -126,7 +126,10 @@ def balanced(m):
     >>> check(HW_SOURCE_FILE, 'balanced', ['Index'])
     True
     """
-    "*** YOUR CODE HERE ***"
+    if total_weight[m[1]] == total_weight[m[2]]:
+        return True
+    else:
+        return False
 
 
 def totals_tree(m):
