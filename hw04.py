@@ -126,7 +126,13 @@ def balanced(m):
     >>> check(HW_SOURCE_FILE, 'balanced', ['Index'])
     True
     """
-    if total_weight[m[1]] == total_weight[m[2]]:
+    left = 0
+    right = 0
+    if is_arm(m[1]):
+        left = total_weight(m[1][2]) * m[1][1]
+    if is_arm(m[2]):
+        right = total_weight(m[2][2]) * m[2][1]
+    if left == right:
         return True
     else:
         return False
