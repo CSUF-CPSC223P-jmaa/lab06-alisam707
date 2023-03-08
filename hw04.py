@@ -126,13 +126,16 @@ def balanced(m):
     >>> check(HW_SOURCE_FILE, 'balanced', ['Index'])
     True
     """
-    left = 0
-    right = 0
-    if is_arm(m[1]):
-        left = total_weight(m[1][2]) * m[1][1]
-    if is_arm(m[2]):
-        right = total_weight(m[2][2]) * m[2][1]
-    if left == right:
+    leftarm, rightarm = 0, 0
+    if is_mobile(end(left(m))):
+        leftarm = total_weight(end(left(m))) * length(left(m))
+    if is_mobile(end(right(m))):
+        rightarm = total_weight(end(right(m))) * length(right(m))
+    '''
+    leftarm = total_weight(left(m)) * length(left(m))
+    rightarm = total_weight(right(m)) * length(right(m))
+    '''
+    if leftarm == rightarm:
         return True
     else:
         return False
